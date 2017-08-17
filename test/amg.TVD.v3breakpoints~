@@ -1,0 +1,180 @@
+# Magic: LR-70-2595584-9ER
+# Generated file -- DO NOT EDIT
+# Breakpoint list saved by Linux x86_64 TotalView 8.15.0-15
+
+dset TV::Private::saved_breakpoint_actual_format 3
+dset TV::Private::saved_breakpoint_actual_revision 0
+
+namespace eval TV::Private {
+
+BP_initiate_saved_bp 1
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#76}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/parcsr_ls/par_laplace_27pt.c#726}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#par_laplace_27pt.c#GenerateLaplacian27pt}
+BP_set_saved_property 	InnerUnitLineOffset {691}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {   diag_j = hypre_CTAlloc(HYPRE_Int, diag_i[local_num_rows]);}
+BP_set_saved_property 	Instruction {mov      -108(%rbp),%eax}
+BP_instantiate_saved_bp 1
+
+BP_initiate_saved_bp 2
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#76}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#1589}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildParVarDifConv}
+BP_set_saved_property 	InnerUnitLineOffset {15}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {   hypre_MPI_Comm_size(hypre_MPI_COMM_WORLD, &num_procs );}
+BP_set_saved_property 	Instruction {leal     -68(%rbp),%rax}
+BP_instantiate_saved_bp 2
+
+BP_initiate_saved_bp 3
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#76}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/parcsr_ls/par_laplace_27pt.c#153}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#par_laplace_27pt.c#GenerateLaplacian27pt}
+BP_set_saved_property 	InnerUnitLineOffset {118}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+BP_set_saved_property 	BlockEnabled {1 1 0}
+BP_set_saved_property 	BlockAddress {0x004495dc 0x0044aec2 0x0044aec6}
+BP_set_saved_property 	SourceText {         for (ix = nx_part[p]; ix < nx_part[p+1]; ix++)}
+BP_set_saved_property 	Instruction {mov      -224(%rbp),%rax}
+BP_instantiate_saved_bp 3
+
+BP_initiate_saved_bp 4
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#1726}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt}
+BP_set_saved_property 	InnerUnitLineOffset {35}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {   hypre_MPI_Comm_size(comm, &num_procs );}
+BP_set_saved_property 	Instruction {leal     -316(%rbp),%rdx}
+BP_instantiate_saved_bp 4
+
+BP_initiate_saved_bp 5
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#2458}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt._omp_fn.0#$b1}
+BP_set_saved_property 	InnerUnitLineOffset {612}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {      all_nnz = nnz[num_threads-1];}
+BP_set_saved_property 	Instruction {mov      -72(%rbp),%eax}
+BP_instantiate_saved_bp 5
+
+BP_initiate_saved_bp 6
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#2459}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt._omp_fn.0#$b1}
+BP_set_saved_property 	InnerUnitLineOffset {613}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {      col_nums = hypre_CTAlloc(HYPRE_Int, all_nnz);}
+BP_set_saved_property 	Instruction {mov      -68(%rbp),%eax}
+BP_instantiate_saved_bp 6
+
+BP_initiate_saved_bp 7
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#2471}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt._omp_fn.0#$b1}
+BP_set_saved_property 	InnerUnitLineOffset {625}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {      cnt = nnz[my_thread-1];}
+BP_set_saved_property 	Instruction {mov      -76(%rbp),%eax}
+BP_instantiate_saved_bp 7
+
+BP_initiate_saved_bp 8
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#2462}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt._omp_fn.0#$b1}
+BP_set_saved_property 	InnerUnitLineOffset {616}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {      HYPRE_IJMatrixSetDiagOffdSizes( ij_A, diag_i, offd_i);}
+BP_set_saved_property 	Instruction {mov      -120(%rbp),%rax}
+BP_instantiate_saved_bp 8
+
+BP_initiate_saved_bp 9
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#2469}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt._omp_fn.0#$b1}
+BP_set_saved_property 	InnerUnitLineOffset {623}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {   if (my_thread) }
+BP_set_saved_property 	Instruction {cmpl     $0,-76(%rbp)}
+BP_instantiate_saved_bp 9
+
+BP_initiate_saved_bp 10
+BP_set_saved_property 	ContextPath {/home/yang11/AMG2017/hypre/src/test/amg.c#78}
+BP_set_saved_property 	LinePath {/home/yang11/AMG2017/hypre/src/test/amg.c#3337}
+BP_set_saved_property 	InnerUnitPath {##/home/yang11/AMG2017/hypre/src/test/amg#amg.c#BuildIJLaplacian27pt}
+BP_set_saved_property 	InnerUnitLineOffset {1646}
+BP_set_saved_property 	Share {g}
+BP_set_saved_property 	ProcEnabled {1}
+BP_set_saved_property 	BreakSWH {p}
+BP_set_saved_property 	BarrSWH {p}
+BP_set_saved_property 	BarrSWD {g}
+BP_set_saved_property 	SatSet {C}
+# List property BlockEnabled was null
+# List property BlockAddress was null
+BP_set_saved_property 	SourceText {   HYPRE_IJMatrixInitialize(ij_A);}
+BP_set_saved_property 	Instruction {mov      -312(%rbp),%rax}
+BP_instantiate_saved_bp 10
+
+}

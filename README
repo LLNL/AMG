@@ -1,0 +1,55 @@
+AMG2013
+
+General description:
+
+AMG2013 is a parallel algebraic multigrid solver for linear systems arising from
+problems on unstructured grids.  The driver provided with AMG2013 builds linear 
+systems for various 3-dimensional problems.
+AMG2013 is written in ISO-C.  It is an SPMD code which uses MPI and OpenMP 
+threading within MPI tasks. Parallelism is achieved by data decomposition. The 
+driver provided with AMG2013 achieves this decomposition by simply subdividing 
+the grid into logical P x Q x R (in 3D) chunks of equal size.
+For more information, see the amg2013.readme file in the docs directory of the
+distribution.
+%==========================================================================
+%==========================================================================
+
+Building the Code
+
+AMG2013 uses a simple Makefile system for building the code.  All compiler and
+link options are set by modifying the file 'amg2013/Makefile.include'
+appropriately.  
+
+To build the code, first modify the 'Makefile.include' file appropriately, 
+(it is recommended to use the options -DHYPRE_NO_GLOBAL_PARTITION -DHYPRE_LONG_LONG )
+then type (in the amg2013 directory)
+
+  make
+
+Other available targets are
+
+  make clean        (deletes .o files)
+  make veryclean    (deletes .o files, libraries, and executables)
+
+To configure the code to run with:
+
+1 - MPI only , add '-DTIMER_USE_MPI' to the 'INCLUDE_CFLAGS' line 
+    in the 'Makefile.include' file and use a valid MPI.
+2 - OpenMP with MPI, add vendor dependent compilation flag for OMP
+3 - to use the assumed partition (recommended for several thousand
+    processors or more), add '-DHYPRE_NO_GLOBAL_PARTITION' 
+4 - to be able to solve problems that are larger than 2^31-1,
+    add '-DHYPRE_LONG_LONG'
+
+%==========================================================================
+%==========================================================================
+
+Figure of Merit (FOM)
+
+There are 2 FOMs printed out at the end of each run:
+system_size / setup_time
+system_size * #iterations / solve time
+
+It is sufficient to focus on the second one:
+system_size * #iterations / solve time
+
