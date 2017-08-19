@@ -52,13 +52,10 @@ FILES =\
  par_indepset.c\
  par_interp.c\
  par_multi_interp.c\
- par_laplace_27pt.c\
- par_laplace.c\
  par_lr_interp.c\
  par_nongalerkin.c\
  par_rap.c\
  par_rap_communication.c\
- par_vardifconv.c\
  par_relax.c\
  par_relax_more.c\
  par_relax_interface.c\

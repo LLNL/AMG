@@ -294,6 +294,7 @@ hypre_ClearTiming( )
 
 HYPRE_Int
 hypre_PrintTiming( const char     *heading,
+                   HYPRE_Real     *wall_time_ptr,
                    MPI_Comm        comm  )
 {
    HYPRE_Int  ierr = 0;
@@ -335,6 +336,7 @@ hypre_PrintTiming( const char     *heading,
          if (myrank == 0)
          {
             hypre_printf("%s:\n", hypre_TimingName(i));
+            *wall_time_ptr = wall_time;
 
             /* print wall clock info */
             hypre_printf("  wall clock time = %f seconds\n", wall_time);

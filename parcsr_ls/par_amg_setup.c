@@ -148,21 +148,7 @@ hypre_BoomerAMGSetup( void               *amg_vdata,
    HYPRE_Int ns = num_grid_sweeps[1];
    HYPRE_Real    wall_time;   /* for debugging instrumentation */
    HYPRE_Int      add_end;
-
-#ifdef HYPRE_USE_GPU
-   if (!hypre_ParCSRMatrixIsManaged(A)){
-     hypre_fprintf(stderr,"ERROR:: INVALID A in hypre_BoomerAMGSetup::Address %p\n",A);
-     //exit(2);
-   } else if(!hypre_ParVectorIsManaged(f)){
-     hypre_fprintf(stderr,"ERROR:: INVALID f in hypre_BoomerAMGSetup::Address %p\n",f);
-     //exit(2);
-   } else if (!hypre_ParVectorIsManaged(u)){
-     hypre_fprintf(stderr,"ERROR:: INVALID u in hypre_BoomerAMGSetup::Address %p\n",u);
-     //exit(2);
-   } 
-#endif
-
-   /*hypre_CSRMatrix *A_new;*/
+   HYPRE_Real    cum_nnz_AP;
 
    hypre_MPI_Comm_size(comm, &num_procs);   
    hypre_MPI_Comm_rank(comm,&my_id);
@@ -1566,6 +1552,15 @@ hypre_BoomerAMGSetup( void               *amg_vdata,
 		(additive > -1 && additive < num_levels))
          hypre_CreateLambda(amg_data);
 
+   cum_nnz_AP = hypre_ParCSRMatrixDNumNonzeros(A_array[0]);
+   for (j = 0; j < num_levels-1; j++)
+   {
+      hypre_ParCSRMatrixSetDNumNonzeros(P_array[j]);
+      cum_nnz_AP += hypre_ParCSRMatrixDNumNonzeros(P_array[j]);
+      cum_nnz_AP += hypre_ParCSRMatrixDNumNonzeros(A_array[j+1]);
+   }
+
+   hypre_ParAMGDataCumNnzAP(amg_data) = cum_nnz_AP;
    /*-----------------------------------------------------------------------
     * Print some stuff
     *-----------------------------------------------------------------------*/

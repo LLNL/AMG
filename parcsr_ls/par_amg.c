@@ -2595,6 +2595,23 @@ hypre_BoomerAMGGetCumNumIterations( void     *data,
    return hypre_error_flag;
 }
 
+
+HYPRE_Int
+hypre_BoomerAMGGetCumNnzAP( void     *data,
+                              HYPRE_Real      *cum_nnz_AP )
+{
+   hypre_ParAMGData  *amg_data = (hypre_ParAMGData*) data;
+
+   if (!amg_data)
+   {
+      hypre_error_in_arg(1);
+      return hypre_error_flag;
+   } 
+   *cum_nnz_AP = hypre_ParAMGDataCumNnzAP(amg_data);
+
+   return hypre_error_flag;
+}
+
 HYPRE_Int
 hypre_BoomerAMGGetResidual( void * data, hypre_ParVector ** resid )
 {

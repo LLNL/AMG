@@ -823,6 +823,17 @@ HYPRE_BoomerAMGGetCumNumIterations( HYPRE_Solver  solver,
 }
 
 /*--------------------------------------------------------------------------
+ * HYPRE_BoomerAMGGetCumNnzAP
+ *--------------------------------------------------------------------------*/
+
+HYPRE_Int
+HYPRE_BoomerAMGGetCumNnzAP( HYPRE_Solver  solver,
+                                 HYPRE_Real          *cum_nnz_AP )
+{
+   return( hypre_BoomerAMGGetCumNnzAP( (void *) solver, cum_nnz_AP ) );
+}
+
+/*--------------------------------------------------------------------------
  * HYPRE_BoomerAMGGetResidual
  *--------------------------------------------------------------------------*/
 

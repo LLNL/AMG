@@ -525,7 +525,7 @@ hypre_BoomerAMGSetupStats( void               *amg_vdata,
          
       fine_size = hypre_ParCSRMatrixGlobalNumRows(P_array[level]);
       coarse_size = hypre_ParCSRMatrixGlobalNumCols(P_array[level]);
-      hypre_ParCSRMatrixSetDNumNonzeros(P_array[level]);
+      /*hypre_ParCSRMatrixSetDNumNonzeros(P_array[level]);*/
       global_nonzeros = hypre_ParCSRMatrixDNumNonzeros(P_array[level]);
       num_mem[level] += (HYPRE_Real) global_nonzeros;
          

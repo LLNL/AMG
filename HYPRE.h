@@ -22,6 +22,7 @@
 #ifndef HYPRE_HEADER
 #define HYPRE_HEADER
 
+#define HYPRE_NO_GLOBAL_PARTITION 1
 
 /*--------------------------------------------------------------------------
  * Type definitions

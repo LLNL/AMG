@@ -167,6 +167,7 @@ typedef struct
    HYPRE_Int      print_level;
    char     log_file_name[256];
    HYPRE_Int      debug_flag;
+   HYPRE_Real   cum_nnz_AP;
 
  /* enable redundant coarse grid solve */
    HYPRE_Solver   coarse_solver;
@@ -313,6 +314,7 @@ typedef struct
 #define hypre_ParAMGDataPrintLevel(amg_data) ((amg_data)->print_level)
 #define hypre_ParAMGDataLogFileName(amg_data) ((amg_data)->log_file_name)
 #define hypre_ParAMGDataDebugFlag(amg_data)   ((amg_data)->debug_flag)
+#define hypre_ParAMGDataCumNnzAP(amg_data)   ((amg_data)->cum_nnz_AP)
 
 #define hypre_ParAMGDataCoarseSolver(amg_data) ((amg_data)->coarse_solver)
 #define hypre_ParAMGDataACoarse(amg_data) ((amg_data)->A_coarse)
@@ -487,6 +489,7 @@ HYPRE_Int HYPRE_BoomerAMGSetDebugFlag ( HYPRE_Solver solver , HYPRE_Int debug_fl
 HYPRE_Int HYPRE_BoomerAMGGetDebugFlag ( HYPRE_Solver solver , HYPRE_Int *debug_flag );
 HYPRE_Int HYPRE_BoomerAMGGetNumIterations ( HYPRE_Solver solver , HYPRE_Int *num_iterations );
 HYPRE_Int HYPRE_BoomerAMGGetCumNumIterations ( HYPRE_Solver solver , HYPRE_Int *cum_num_iterations );
+HYPRE_Int HYPRE_BoomerAMGGetCumNnzAP ( HYPRE_Solver solver , HYPRE_Real *cum_nnz_AP );
 HYPRE_Int HYPRE_BoomerAMGGetResidual ( HYPRE_Solver solver , HYPRE_ParVector *residual );
 HYPRE_Int HYPRE_BoomerAMGGetFinalRelativeResidualNorm ( HYPRE_Solver solver , HYPRE_Real *rel_resid_norm );
 HYPRE_Int HYPRE_BoomerAMGSetNumFunctions ( HYPRE_Solver solver , HYPRE_Int num_functions );
@@ -669,6 +672,7 @@ HYPRE_Int hypre_BoomerAMGSetPointDofMap ( void *data , HYPRE_Int *point_dof_map 
 HYPRE_Int hypre_BoomerAMGSetDofPoint ( void *data , HYPRE_Int *dof_point );
 HYPRE_Int hypre_BoomerAMGGetNumIterations ( void *data , HYPRE_Int *num_iterations );
 HYPRE_Int hypre_BoomerAMGGetCumNumIterations ( void *data , HYPRE_Int *cum_num_iterations );
+HYPRE_Int hypre_BoomerAMGGetCumNnzAP ( void *data , HYPRE_Real *cum_nnz_AP );
 HYPRE_Int hypre_BoomerAMGGetResidual ( void *data , hypre_ParVector **resid );
 HYPRE_Int hypre_BoomerAMGGetRelResidualNorm ( void *data , HYPRE_Real *rel_resid_norm );
 HYPRE_Int hypre_BoomerAMGSetChebyOrder ( void *data , HYPRE_Int order );

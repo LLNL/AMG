@@ -19,7 +19,7 @@
 
 #define CUMNUMIT
 
-#include "par_csr_block_matrix.h"
+/*#include "par_csr_block_matrix.h"*/
 
 
 /*--------------------------------------------------------------------------
@@ -132,6 +132,7 @@ typedef struct
 #ifdef CUMNUMIT
    HYPRE_Int      cum_num_iterations;
 #endif
+   HYPRE_Real   cum_nnz_A_P;
    HYPRE_Real   rel_resid_norm;
    hypre_ParVector *residual; /* available if logging>1 */
 
@@ -289,6 +290,7 @@ typedef struct
 #define hypre_ParAMGDataPrintLevel(amg_data) ((amg_data)->print_level)
 #define hypre_ParAMGDataLogFileName(amg_data) ((amg_data)->log_file_name)
 #define hypre_ParAMGDataDebugFlag(amg_data)   ((amg_data)->debug_flag)
+#define hypre_ParAMGDataCumNnzAP(amg_data)   ((amg_data)->cum_nnz_AP)
 
 #define hypre_ParAMGDataCoarseSolver(amg_data) ((amg_data)->coarse_solver)
 #define hypre_ParAMGDataACoarse(amg_data) ((amg_data)->A_coarse)

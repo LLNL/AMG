@@ -736,7 +736,7 @@ HYPRE_Real time_get_cpu_seconds_( void );
 #define hypre_IncFLOPCount(inc)
 #define hypre_BeginTiming(i)
 #define hypre_EndTiming(i)
-#define hypre_PrintTiming(heading, comm)
+#define hypre_PrintTiming(heading, wall_time, comm)
 #define hypre_ClearTiming()
 
 /*--------------------------------------------------------------------------
@@ -798,7 +798,7 @@ HYPRE_Int hypre_IncFLOPCount( HYPRE_Int inc );
 HYPRE_Int hypre_BeginTiming( HYPRE_Int time_index );
 HYPRE_Int hypre_EndTiming( HYPRE_Int time_index );
 HYPRE_Int hypre_ClearTiming( void );
-HYPRE_Int hypre_PrintTiming( const char *heading , MPI_Comm comm );
+HYPRE_Int hypre_PrintTiming( const char *heading , HYPRE_Real *wall_time , MPI_Comm comm );
 
 #endif
 
