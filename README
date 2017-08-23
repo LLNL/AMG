@@ -40,7 +40,7 @@ To configure the code to run with:
 3 - to be able to solve problems that are larger than 2^31-1,
     add '-DHYPRE_BIGINT'
 4 - For additional optimizations in MPI and OPENMP, also add 
-    '-DHYPRE_USING_PERSISTENT' (for MPI)  and 
+    '-DHYPRE_USING_PERSISTENT_COMM' (for MPI)  and 
     '-DHYPRE_CONCURRENT_HOPSCOTCH' (for (OpenMP).
 %==========================================================================
 %==========================================================================
