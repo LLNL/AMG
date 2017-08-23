@@ -23,7 +23,7 @@ appropriately.
 
 To build the code, first modify the 'Makefile.include' file appropriately, 
 (it is recommended to use the options -DHYPRE_BIGINT )
-then type (in the amg2013 directory)
+then type (in the AMG directory)
 
   make
 
