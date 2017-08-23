@@ -387,9 +387,21 @@ Final Relative Residual Norm = 7.979902e-09
 %==========================================================================
 %==========================================================================
 
+Figure of Merit
+
+The figures of merit (FOMs) includes wall clock times of portions of
+the code (AMG setup, AMG-PCG or AMG-GMRES solve phase, or a combination
+of those), number of iterations, number of time steps as well as the total
+number of nonzeros for all system matrices and interpolation operators on
+all levels of AMG, nnz_AP.
+
+%==========================================================================
+%==========================================================================
+
 Suggested Test Runs
 
-1. For the default problem:
+1. For Problem 1, the problem needs to be scaled to a size, for which total
+memory use is about
 
 mpirun -np <px*py*pz> amg2013 -laplace -n 40 40 40 -P px py pz
 

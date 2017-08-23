@@ -1,27 +1,28 @@
-AMG2013
+AMG
 
 General description:
 
-AMG2013 is a parallel algebraic multigrid solver for linear systems arising from
-problems on unstructured grids.  The driver provided with AMG2013 builds linear 
+AMG is a parallel algebraic multigrid solver for linear systems arising from
+problems on unstructured grids.  The driver provided with AMG builds linear 
 systems for various 3-dimensional problems.
-AMG2013 is written in ISO-C.  It is an SPMD code which uses MPI and OpenMP 
+AMG is written in ISO-C.  It is an SPMD code which uses MPI and OpenMP 
 threading within MPI tasks. Parallelism is achieved by data decomposition. The 
-driver provided with AMG2013 achieves this decomposition by simply subdividing 
+driver provided with AMG achieves this decomposition by simply subdividing 
+driver provided with AMG achieves this decomposition by simply subdividing 
 the grid into logical P x Q x R (in 3D) chunks of equal size.
-For more information, see the amg2013.readme file in the docs directory of the
+For more information, see the amg.readme file in the docs directory of the
 distribution.
 %==========================================================================
 %==========================================================================
 
 Building the Code
 
-AMG2013 uses a simple Makefile system for building the code.  All compiler and
-link options are set by modifying the file 'amg2013/Makefile.include'
+AMG uses a simple Makefile system for building the code.  All compiler and
+link options are set by modifying the file 'AMG/Makefile.include'
 appropriately.  
 
 To build the code, first modify the 'Makefile.include' file appropriately, 
-(it is recommended to use the options -DHYPRE_NO_GLOBAL_PARTITION -DHYPRE_LONG_LONG )
+(it is recommended to use the options -DHYPRE_BIGINT )
 then type (in the amg2013 directory)
 
   make
@@ -36,20 +37,23 @@ To configure the code to run with:
 1 - MPI only , add '-DTIMER_USE_MPI' to the 'INCLUDE_CFLAGS' line 
     in the 'Makefile.include' file and use a valid MPI.
 2 - OpenMP with MPI, add vendor dependent compilation flag for OMP
-3 - to use the assumed partition (recommended for several thousand
-    processors or more), add '-DHYPRE_NO_GLOBAL_PARTITION' 
-4 - to be able to solve problems that are larger than 2^31-1,
-    add '-DHYPRE_LONG_LONG'
-
+3 - to be able to solve problems that are larger than 2^31-1,
+    add '-DHYPRE_BIGINT'
+4 - For additional optimizations in MPI and OPENMP, also add 
+    '-DHYPRE_USING_PERSISTENT' (for MPI)  and 
+    '-DHYPRE_CONCURRENT_HOPSCOTCH' (for (OpenMP).
 %==========================================================================
 %==========================================================================
 
 Figure of Merit (FOM)
 
-There are 2 FOMs printed out at the end of each run:
-system_size / setup_time
-system_size * #iterations / solve time
+For problem 1, 
+there are 2 FOMs printed out at the end of each run:
+nnz_AP / setup_time
+nnz_AP * #iterations / solve time
+Both need to be considered.
 
-It is sufficient to focus on the second one:
-system_size * #iterations / solve time
+For problem 2,
+one FOM needs to be considered:
+nnz_AP * (#iterations + time_steps) / time
 

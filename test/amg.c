@@ -194,6 +194,13 @@ main( hypre_int argc,
       else if ( strcmp(argv[arg_index], "-printstats") == 0 )
       {
          arg_index++;
+         ioutdat  = 1;
+         poutdat  = 1;
+         print_stats  = 1;
+      }
+      else if ( strcmp(argv[arg_index], "-printallstats") == 0 )
+      {
+         arg_index++;
          ioutdat  = 3;
          poutdat  = 1;
          print_stats  = 1;
@@ -379,11 +386,7 @@ main( hypre_int argc,
       HYPRE_BoomerAMGGetCumNnzAP(pcg_precond, &cum_nnz_AP);
 
       if (myid == 0)
-            printf ("\nCum_NNZ_AP: %e\n\n", cum_nnz_AP);
-      if (myid == 0)
-            printf ("\nSystem Size / Setup Phase Time: %e\n\n", (system_size/ wall_time));
-      if (myid == 0)
-            printf ("\nNNZ_AP / Setup Phase Time: %e\n\n", (cum_nnz_AP/ wall_time));
+            printf ("\nnnz_AP / Setup Phase Time: %e\n\n", (cum_nnz_AP/ wall_time));
    
       time_index = hypre_InitializeTiming("PCG Solve");
       hypre_BeginTiming(time_index);
@@ -411,9 +414,7 @@ main( hypre_int argc,
          hypre_printf("Iterations = %d\n", num_iterations);
          hypre_printf("Final Relative Residual Norm = %e\n", final_res_norm);
          hypre_printf("\n");
-         printf ("\nSystem Size * Iterations / Solve Phase Time: %e\n\n", (system_size*(HYPRE_Real)num_iterations/ wall_time));
-         hypre_printf("\n");
-         printf ("\nNNZ_AP * Iterations / Solve Phase Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)num_iterations/ wall_time));
+         printf ("\nnnz_AP * Iterations / Solve Phase Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)num_iterations/ wall_time));
       }
  
    }
@@ -532,9 +533,8 @@ main( hypre_int argc,
          hypre_printf("Cum. No. of Iterations = %d\n", cum_num_its);
          hypre_printf("Final Relative Residual Norm = %e\n", final_res_norm);
          hypre_printf("\n");
-         printf ("\nSystem Size * (Iterations + time_steps) / Total Time: %e\n\n", (system_size*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
          cum_nnz_AP /= (HYPRE_Real)time_steps;
-         printf ("\nNNZ AP * (Iterations + time_steps) / Total Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
+         printf ("\nnnz AP * (Iterations + time_steps) / Total Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
          hypre_printf("\n");
       }
    }

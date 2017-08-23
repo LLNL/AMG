@@ -187,8 +187,7 @@ hypre_BoomerAMGSetupStats( void               *amg_vdata,
 
    if (my_id==0)
    {
-      hypre_printf("\n\n Num MPI tasks = %d\n\n",num_procs);
-      hypre_printf(" Num OpenMP threads = %d\n\n",num_threads);
+      hypre_printf("\n\n Num MPI tasks = %d  Num OpenMP threads = %d\n\n",num_procs,num_threads);
       hypre_printf("\nBoomerAMG SETUP PARAMETERS:\n\n");
       hypre_printf(" Max levels = %d\n",hypre_ParAMGDataMaxLevels(amg_data));
       hypre_printf(" Num levels = %d\n\n",num_levels);
