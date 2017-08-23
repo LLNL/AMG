@@ -1,10 +1,10 @@
 
 COPYRIGHT
 
-The following copyright applies to each file in the AMG2013 distribution, 
+The following copyright applies to each file in the AMG distribution, 
 unless otherwise stated in the file:
 
-Copyright (c) 2014,  Lawrence Livermore National Security, LLC.
+Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
 Produced at the Lawrence Livermore National Laboratory under
 Contract No. DE-AC52-07NA27344 with the DOE. Written by Rob Falgout
 and Ulrike Yang (umyang@llnl.gov). LLNL-CODE-659-229. All rights reserved.
@@ -23,7 +23,7 @@ FOR A PARTICULAR PURPOSE.  See the terms and conditions of the GNU Lesser
 General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with this library (file COPYING.LESSER); if not, write to the Free Software
+with this library (file LICENSE); if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 
