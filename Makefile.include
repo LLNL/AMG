@@ -32,7 +32,7 @@ CC = mpicc
 # MPI with OpenMP:
 #   add '-DTIMER_USE_MPI -DTIMER_USE_MPI' to 'INCLUDE_CFLAGS' and appropriate OpenMP libararies
 # for additional optimizations for MPI:
-#   add '-DTIMER_USE_MPI -DHYPRE_USING_PERSISTENT' to 'INCLUDE_CFLAGS' and appropriate OpenMP libraries 
+#   add '-DTIMER_USE_MPI -DHYPRE_USING_PERSISTENT_COMM' to 'INCLUDE_CFLAGS' and appropriate OpenMP libraries 
 # for additional optimizations for OpenMP:
 #   add '-DHYPRE_USING_OPENMP -DHYPRE_CONCURRENT_HOPSCOTCH' to 'INCLUDE_CFLAGS'
 # Use 64-bit integers for global variables (needed for large problems
