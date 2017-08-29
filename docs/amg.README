@@ -127,7 +127,7 @@ To configure the code to run with:
     and add '-DTIMER_USE_MPI -DHYPRE_USING_OPENMP'
 3 - for additional optimzations in MPI and OpenMP, add also
     '-DHYPRE_USING_PERSISTENT_COMM' (for MPI) and
-    '-DHYPRE_CONCURRENT_HOPSCOTCH' (for OpenMP) to 'INCLUDE_CFLAGS'
+    '-DHYPRE_HOPSCOTCH' (for OpenMP) to 'INCLUDE_CFLAGS'
 4 - to be able to solve problems that are larger than 2^31-1,
     add '-DHYPRE_BIGINT'
 
@@ -402,16 +402,19 @@ Suggested Test Runs
 
 1. For Problem 1, the problem needs to be scaled to a size, for which total
 memory use is about
+The largest problem we were able to run on Vulcan using 16 cores and 4 OpenMP
+threads was the following:
+mpirun -np <px*py*pz> amg -n 96 96 96 -P px py pz
+This generates a problem with 884,736 grid points per MPI process
+with a global domain of the size 96*px x 96*py x 96*pz .
 
-mpirun -np <px*py*pz> amg2013 -laplace -n 40 40 40 -P px py pz
-
-This will generate a problem with 64,000 grid points per MPI process
-with a domain of the size 40*px x 40*py x 40*pz .
-
-mpirun -np <px*py*pz> amg2013 -laplace -n 80 80 80 -P px py pz
-
-This will generate a problem with 512,000 grid points per MPI process
-with a domain of the size 80*px x 80*py x 80*pz .
+2. For Problem 2, it is expected that the physics code will take up most
+of the machine and only about 5-10% of memory is available for the linear
+solver. On Vulcan, this led to the following run:
+mpirun -np <px*py*pz> amg -problem 2 -n 40 40 40 -P px py pz
+This generates a problem with 64,000 grid points per MPI process
+with a global domain of the size 40*px x 40*py x 40*pz s, using about 7.2%
+of the memory the suggested run for Problem 1 uses.
 
 %==========================================================================
 %==========================================================================

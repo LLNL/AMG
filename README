@@ -39,9 +39,8 @@ To configure the code to run with:
 2 - OpenMP with MPI, add vendor dependent compilation flag for OMP
 3 - to be able to solve problems that are larger than 2^31-1,
     add '-DHYPRE_BIGINT'
-4 - For additional optimizations in MPI and OPENMP, also add 
-    '-DHYPRE_USING_PERSISTENT_COMM' (for MPI)  and 
-    '-DHYPRE_CONCURRENT_HOPSCOTCH' (for (OpenMP).
+4 - For additional optimizations in MPI add '-DHYPRE_USING_PERSISTENT_COMM'
+5 - For additional optimizations in OpenMP add '-DHYPRE_HOPSCOTCH'
 %==========================================================================
 %==========================================================================
 
