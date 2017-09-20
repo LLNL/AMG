@@ -22,6 +22,7 @@
 
 
 # set the compiler here
+#CC = gcc
 CC = mpicc
 #CC = mpixlc_r
 
@@ -37,6 +38,7 @@ CC = mpicc
 # Use 64-bit integers for global variables (needed for large problems
 #	with more than 2 billion variables)
 #   add '-DHYPRE_BIGINT'  to 'INCLUDE_CFLAGS'
+#INCLUDE_CFLAGS = -O2
 #INCLUDE_CFLAGS = -g -DTIMER_USE_MPI 
 #INCLUDE_CFLAGS = -g -DTIMER_USE_MPI -DHYPRE_USING_OPENMP
 #INCLUDE_CFLAGS = -O2 -DTIMER_USE_MPI -DHYPRE_USING_OPENMP -DHYPRE_BIGINT -fopenmp
