@@ -1,13 +1,18 @@
 /*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
  * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
  *
- * HYPRE is free software; you can redistribute it and/or modify it under the
+ * AMG is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License (as published by the Free
  * Software Foundation) version 2.1 dated February 1999.
  *
- * $Revision$
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
  ***********************************************************************EHEADER*/
 
 /* see exchange_data.README for additional information */
@@ -21,7 +26,6 @@
 
 /*---------------------------------------------------
  * hypre_CreateBinaryTree()
- * Get the processors position in the binary tree (i.e.,
  * its children and parent processor ids)
  *----------------------------------------------------*/
 
@@ -270,9 +274,8 @@ HYPRE_Int hypre_DataExchangeList(HYPRE_Int num_contacts,
 
    /*------------BINARY TREE-----------------------*/
 
-   /*Now let's find out our binary tree information and
+  /*Now let's find out our binary tree information and
      initialize for the termination check sweep */
-   terminate = 1; /*indicates whether we can stop probing for contact */
    children_complete = 1;/*indicates whether we have recv. term messages 
                            from our children*/
  

@@ -1,13 +1,18 @@
 /*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
  * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
  *
- * HYPRE is free software; you can redistribute it and/or modify it under the
+ * AMG is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License (as published by the Free
  * Software Foundation) version 2.1 dated February 1999.
  *
- * $Revision: 2.14 $
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
  ***********************************************************************EHEADER*/
 
 #include "_hypre_parcsr_ls.h"
@@ -72,7 +77,6 @@ void hypre_qsort2_abs( HYPRE_Int *v,
  *      z is of length min(x_length, y_length)
  *      x and y are sorted
  *      x_length and y_length are similar in size, otherwise, 
- *          looping over the smaller array and doing binary search
  *          in the longer array is faster.
  * */
 HYPRE_Int
@@ -1457,7 +1461,6 @@ hypre_BoomerAMGBuildNonGalerkinCoarseOperator( hypre_ParCSRMatrix **RAP_ptr,
     /* construct the S_ext_diag and _offd row-pointer arrays by counting elements
      * This looks to create offd and diag blocks related to the local rows belonging
      * to this processor...we may not need to split up S_ext this way...or we could.
-     * It would make for faster binary searching and set intersecting later...this will
      * be the bottle neck so LETS SPLIT THIS UP Between offd and diag*/
     for (i=0; i < num_cols_RAP_offd; i++)
     {
@@ -1930,7 +1933,6 @@ hypre_BoomerAMGBuildNonGalerkinCoarseOperator( hypre_ParCSRMatrix **RAP_ptr,
     /*
      * Eliminate Entries In RAP_offd
      * Structure of this for-loop is very similar to the RAP_diag for-loop
-     * But, not so similar that these loops should be combined into a single fuction.
      * */
     if(num_cols_RAP_offd)
     {

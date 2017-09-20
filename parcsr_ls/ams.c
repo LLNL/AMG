@@ -1,13 +1,18 @@
 /*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
  * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
  *
- * HYPRE is free software; you can redistribute it and/or modify it under the
+ * AMG is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License (as published by the Free
  * Software Foundation) version 2.1 dated February 1999.
  *
- * $Revision$
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
  ***********************************************************************EHEADER*/
 
 #include "_hypre_parcsr_ls.h"
@@ -2143,7 +2148,6 @@ HYPRE_Int hypre_AMSSetup(void *solver,
    if (ams_data -> Pi == NULL && ams_data -> Pix == NULL)
    {
       if (ams_data -> cycle_type == 20)
-         /* Construct the combined interpolation matrix [G,Pi] */
          hypre_AMSComputeGPi(ams_data -> A,
                              ams_data -> G,
                              ams_data -> Gx,

@@ -1,13 +1,18 @@
 /*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
  * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
  *
- * HYPRE is free software; you can redistribute it and/or modify it under the
+ * AMG is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License (as published by the Free
  * Software Foundation) version 2.1 dated February 1999.
  *
- * $Revision$
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
  ***********************************************************************EHEADER*/
 
 /**
@@ -147,13 +152,11 @@ static inline HYPRE_Int first_lsb_bit_indx(hypre_uint x)
 
    BSD 2-Clause License (http://www.opensource.org/licenses/bsd-license.php)
 
-   Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
 
        * Redistributions of source code must retain the above copyright
    notice, this list of conditions and the following disclaimer.
-       * Redistributions in binary form must reproduce the above
    copyright notice, this list of conditions and the following disclaimer
    in the documentation and/or other materials provided with the
    distribution.

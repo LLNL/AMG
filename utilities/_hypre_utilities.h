@@ -1,3 +1,147 @@
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
+/*BHEADER**********************************************************************
+ * Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
+ * Produced at the Lawrence Livermore National Laboratory.
+ * Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+ * This file is part of AMG.  See files README and COPYRIGHT for details.
+ *
+ * AMG is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License (as published by the Free
+ * Software Foundation) version 2.1 dated February 1999.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY OF MERCHANTIBILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the terms and conditions of the
+ * GNU General Public License for more details.
+ *
+ ***********************************************************************EHEADER*/
 
 #ifndef hypre_UTILITIES_HEADER
 #define hypre_UTILITIES_HEADER
@@ -21,17 +165,6 @@ typedef double            hypre_double;
 extern "C" {
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 /******************************************************************************
  *
@@ -352,17 +485,6 @@ HYPRE_Int hypre_MPI_Op_create( hypre_MPI_User_function *function , hypre_int com
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 #ifndef HYPRE_SMP_HEADER
 #define HYPRE_SMP_HEADER
@@ -469,17 +591,6 @@ void hypre_FreeDML( char *ptr , char *file , HYPRE_Int line );
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 #ifndef hypre_THREADING_HEADER
 #define hypre_THREADING_HEADER
@@ -502,17 +613,6 @@ void hypre_GetSimpleThreadPartition( HYPRE_Int *begin, HYPRE_Int *end, HYPRE_Int
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 /******************************************************************************
  *
@@ -624,17 +724,6 @@ HYPRE_Int hypre_PrintTiming( const char *heading , HYPRE_Real *wall_time , MPI_C
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 /******************************************************************************
  *
@@ -674,17 +763,6 @@ typedef hypre_ListElement  *hypre_LinkList;
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 #ifndef hypre_EXCHANGE_DATA_HEADER
 #define hypre_EXCHANGE_DATA_HEADER
@@ -735,17 +813,6 @@ HYPRE_Int hypre_DataExchangeList(HYPRE_Int num_contacts,
 
 #endif /* end of header */
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 #ifndef hypre_ERROR_HEADER
 #define hypre_ERROR_HEADER
@@ -773,17 +840,6 @@ void hypre_error_handler(const char *filename, HYPRE_Int line, HYPRE_Int ierr, c
 
 #endif
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 /******************************************************************************
  *
@@ -812,17 +868,6 @@ void hypre_error_handler(const char *filename, HYPRE_Int line, HYPRE_Int ierr, c
 
 #endif *//* CALIPER_INSTRUMENTATION_HEADER */
 
-/*BHEADER**********************************************************************
- * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.
- * Produced at the Lawrence Livermore National Laboratory.
- * This file is part of HYPRE.  See file COPYRIGHT for details.
- *
- * HYPRE is free software; you can redistribute it and/or modify it under the
- * terms of the GNU Lesser General Public License (as published by the Free
- * Software Foundation) version 2.1 dated February 1999.
- *
- * $Revision$
- ***********************************************************************EHEADER*/
 
 /* amg_linklist.c */
 void hypre_dispose_elt ( hypre_LinkList element_ptr );
@@ -830,7 +875,6 @@ void hypre_remove_point ( hypre_LinkList *LoL_head_ptr , hypre_LinkList *LoL_tai
 hypre_LinkList hypre_create_elt ( HYPRE_Int Item );
 void hypre_enter_on_lists ( hypre_LinkList *LoL_head_ptr , hypre_LinkList *LoL_tail_ptr , HYPRE_Int measure , HYPRE_Int index , HYPRE_Int *lists , HYPRE_Int *where );
 
-/* binsearch.c */
 HYPRE_Int hypre_BinarySearch ( HYPRE_Int *list , HYPRE_Int value , HYPRE_Int list_length );
 HYPRE_Int hypre_BinarySearch2 ( HYPRE_Int *list , HYPRE_Int value , HYPRE_Int low , HYPRE_Int high , HYPRE_Int *spot );
 HYPRE_Int *hypre_LowerBound( HYPRE_Int *first, HYPRE_Int *last, HYPRE_Int value );
