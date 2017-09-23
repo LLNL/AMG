@@ -1,7 +1,7 @@
 #BHEADER**********************************************************************
 # Copyright (c) 2017,  Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
-# Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738-322.
+# Written by Ulrike Yang (yang11@llnl.gov) et al. CODE-LLNL-738322.
 # This file is part of AMG.  See files COPYRIGHT and README for details.
 #
 # AMG is free software; you can redistribute it and/or modify it under the
@@ -118,7 +118,7 @@ Scientific Computing (CASC) at LLNL.
 Building the Code
 
 AMG uses a simple Makefile system for building the code.  All compiler and
-link options are set by modifying the file 'amg2013/Makefile.include'
+link options are set by modifying the file 'amg/Makefile.include'
 appropriately.  This file is then included in each of the following makefiles:
 
   krylov/Makefile
@@ -130,7 +130,7 @@ appropriately.  This file is then included in each of the following makefiles:
   utilities/Makefile
 
 To build the code, first modify the 'Makefile.include' file appropriately, then
-type (in the amg2013 directory)
+type (in the amg directory)
 
   make
 
@@ -171,7 +171,7 @@ Previous versions of AMG have been run on the following platforms:
   and more
 
 Consider increasing both problem size and number of processors in tandem.
-On scalable architectures, time-to-solution for AMG2013 will initially
+On scalable architectures, time-to-solution for AMG will initially
 increase, then it will level off at a modest numbers of processors,
 remaining roughly constant for larger numbers of processors.  Iteration
 counts will also increase slightly for small to modest sized problems,
@@ -197,16 +197,14 @@ These results were obtained on BG/P using the assumed partition option
 
 Running the Code
 
-The driver for AMG2013 is called `amg2013', and is located in the amg2013/test
+The driver for AMG is called `amg', and is located in the amg/test
 subdirectory.  Type
 
-   mpirun -np 1 amg2013 -help
+   mpirun -np 1 amg -help
 
 to get usage information.  This prints out the following:
 
-Usage: amg2013 [<options>]
- 
-  -in <filename> : input file (default is `sstruct.in.AMG.FD')
+Usage: amg [<options>]
  
   -P <Px> <Py> <Pz>   : define processor topology per part
                         Note that for test problem 1, which has 8 parts
@@ -273,8 +271,9 @@ the command line.
 
 Expected Results
 
-Consider the following run, which was compiled using options -DTIMER_USE_MPI -DHYPRE_USING_OPENMP,
-linking with OpenMP and setting OMP_NUM_THREADS to 2:
+Consider the following run, which was compiled using options -DTIMER_USE_MPI 
+-DHYPRE_USING_OPENMP -DHYPRE_HOPSCOTCH -DHYPRE_USING_PERSISTENT_COMM -DHYPRE_BIGINT
+linking with OpenMP and setting OMP_NUM_THREADS to 3:
 
   mpirun -np 4 amg -P 2 2 1 -n 50 50 50 -printstats
 
@@ -291,9 +290,9 @@ Running with these driver parameters:
 Generate Matrix:
 =============================================
 Spatial Operator:
-  wall clock time = 0.077136 seconds
+  wall clock time = 0.075466 seconds
   wall MFLOPS     = 0.000000
-  cpu clock time  = 0.200000 seconds
+  cpu clock time  = 0.190000 seconds
   cpu MFLOPS      = 0.000000
 
   RHS vector has unit components
@@ -302,9 +301,9 @@ Spatial Operator:
 IJ Vector Setup:
 =============================================
 RHS and Initial Guess:
-  wall clock time = 0.001619 seconds
+  wall clock time = 0.001849 seconds
   wall MFLOPS     = 0.000000
-  cpu clock time  = 0.000000 seconds
+  cpu clock time  = 0.010000 seconds
   cpu MFLOPS      = 0.000000
 
 Solver: AMG-PCG
@@ -347,6 +346,7 @@ lev   rows  entries  sparse  min  max   avg       min         max
  4      17      287  0.993    16   17  16.9   2.751e+02   1.063e+03
 
 
+
 Interpolation Matrix Information:
                  entries/row    min     max         row sums
 lev  rows cols    min max     weight   weight     min       max 
@@ -383,37 +383,51 @@ BoomerAMG SOLVER PARAMETERS:
 Problem 1: AMG Setup Time:
 =============================================
 PCG Setup:
-  wall clock time = 0.252805 seconds
+  wall clock time = 0.258020 seconds
   wall MFLOPS     = 0.000000
   cpu clock time  = 0.680000 seconds
   cpu MFLOPS      = 0.000000
 
 
-nnz_AP / Setup Phase Time: 5.666973e+07
+nnz_AP / Setup Phase Time: 5.552436e+07
 
 =============================================
 Problem 1: AMG-PCG Solve Time:
 =============================================
 PCG Solve:
-  wall clock time = 1.282640 seconds
+  wall clock time = 1.316479 seconds
   wall MFLOPS     = 0.000000
-  cpu clock time  = 3.780000 seconds
+  cpu clock time  = 3.850000 seconds
   cpu MFLOPS      = 0.000000
 
 
 Iterations = 20
 Final Relative Residual Norm = 7.979902e-09
 
+
+nnz_AP * Iterations / Solve Phase Time: 2.176471e+08
+
+
+
+Figure of Merit (FOM_1): 1.632353e+08
+
+
 %==========================================================================
 %==========================================================================
 
 Figure of Merit
 
-The figures of merit (FOMs) includes wall clock times of portions of
+The figures of merit (FOM_1 and FOM_2) include wall clock times of portions of
 the code (AMG setup, AMG-PCG or AMG-GMRES solve phase, or a combination
 of those), number of iterations, number of time steps as well as the total
 number of nonzeros for all system matrices and interpolation operators on
 all levels of AMG, nnz_AP.
+
+FOM_1 is generated through (FOM_Setup+ 3*FOM_Solve)/4 .
+
+The final FOM should be evaluated as follows:
+
+FOM = (FOM_1 + FOM_2)/2
 
 %==========================================================================
 %==========================================================================
@@ -421,7 +435,7 @@ all levels of AMG, nnz_AP.
 Suggested Test Runs
 
 1. For Problem 1, the problem needs to be scaled to a size, for which total
-memory use is about
+memory use is about 85-90% of the total memory.
 The largest problem we were able to run on Vulcan using 16 cores and 4 OpenMP
 threads was the following:
 mpirun -np <px*py*pz> amg -n 96 96 96 -P px py pz
@@ -430,10 +444,10 @@ with a global domain of the size 96*px x 96*py x 96*pz .
 
 2. For Problem 2, it is expected that the physics code will take up most
 of the machine and only about 5-10% of memory is available for the linear
-solver. On Vulcan, this led to the following run:
+solver. On Vulcan, the following run fulfilled this requirement:
 mpirun -np <px*py*pz> amg -problem 2 -n 40 40 40 -P px py pz
 This generates a problem with 64,000 grid points per MPI process
-with a global domain of the size 40*px x 40*py x 40*pz s, using about 7.2%
+with a global domain of the size 40*px x 40*py x 40*pz , using about 7.2%
 of the memory the suggested run for Problem 1 uses.
 
 %==========================================================================
@@ -449,7 +463,7 @@ email: umyang@llnl.gov
 
 Release and Modification Record
 
-LLNL code release number: LLNL-xxxxx
+LLNL code release number: LLNL-738322
 
 See the files COPYRIGHT and LICENSE for a complete copyright notice, 
 additional contact information, disclaimer and license.

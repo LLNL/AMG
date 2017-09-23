@@ -120,6 +120,7 @@ main( hypre_int argc,
    HYPRE_Real   system_size;
    HYPRE_Real   cum_nnz_AP = 0;
    HYPRE_Real   nnz_AP;
+   HYPRE_Real   FOM1, FOM2;
 
    /* parameters for GMRES */
    HYPRE_Int	    k_dim = 20;
@@ -230,13 +231,18 @@ main( hypre_int argc,
       hypre_printf("\n");
       hypre_printf("Usage: %s [<options>]\n", argv[0]);
       hypre_printf("\n");
-      hypre_printf("\n");
       hypre_printf("  -problem <ID>: problem ID\n");
-      hypre_printf("       1 = solves 1 large problem with AMG-PCG        \n");
+      hypre_printf("       1 = solves 1 large problem with AMG-PCG (default) \n");
       hypre_printf("       2 = simulates a time-dependent loop with AMG-GMRES\n");
       hypre_printf("\n");
-      hypre_printf("  -print       : prints the system)\n");
-      hypre_printf("  -printstats  : prints preconditioning and convergence stats)\n");
+      hypre_printf("  -n <nx> <ny> <nz>: problem size per MPI process (default: nx=ny=nz=10)\n");
+      hypre_printf("\n");
+      hypre_printf("  -P <px> <py> <pz>: processor topology (default: px=py=pz=1)\n");
+      hypre_printf("\n");
+      hypre_printf("  -print       : prints the system\n");
+      hypre_printf("  -printstats  : prints preconditioning and convergence stats\n");
+      hypre_printf("  -printallstats  : prints preconditioning and convergence stats\n");
+      hypre_printf("                    including residual norms for each iteration\n");
       hypre_printf("\n"); 
       exit(1);
    }
@@ -390,8 +396,10 @@ main( hypre_int argc,
 
       HYPRE_BoomerAMGGetCumNnzAP(pcg_precond, &cum_nnz_AP);
 
+      FOM2 = cum_nnz_AP/ wall_time;
+
       if (myid == 0)
-            printf ("\nnnz_AP / Setup Phase Time: %e\n\n", (cum_nnz_AP/ wall_time));
+            printf ("\nnnz_AP / Setup Phase Time: %e\n\n", FOM2);
    
       time_index = hypre_InitializeTiming("PCG Solve");
       hypre_BeginTiming(time_index);
@@ -413,13 +421,18 @@ main( hypre_int argc,
 
       HYPRE_ParCSRPCGDestroy(pcg_solver);
 
+      FOM2 = cum_nnz_AP*(HYPRE_Real)num_iterations/ wall_time;
+
       if (myid == 0)
       {
          hypre_printf("\n");
          hypre_printf("Iterations = %d\n", num_iterations);
          hypre_printf("Final Relative Residual Norm = %e\n", final_res_norm);
          hypre_printf("\n");
-         printf ("\nnnz_AP * Iterations / Solve Phase Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)num_iterations/ wall_time));
+         printf ("\nnnz_AP * Iterations / Solve Phase Time: %e\n\n", FOM2);
+         FOM1 += 3.0*FOM2;
+         FOM1 /= 4.0;
+         printf ("\n\nFigure of Merit (FOM_1): %e\n\n", FOM1);
       }
  
    }
