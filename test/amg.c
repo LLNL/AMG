@@ -399,7 +399,7 @@ main( hypre_int argc,
       FOM2 = cum_nnz_AP/ wall_time;
 
       if (myid == 0)
-            printf ("\nnnz_AP / Setup Phase Time: %e\n\n", FOM2);
+            printf ("\nFOM_Setup: nnz_AP / Setup Phase Time: %e\n\n", FOM2);
    
       time_index = hypre_InitializeTiming("PCG Solve");
       hypre_BeginTiming(time_index);
@@ -429,7 +429,7 @@ main( hypre_int argc,
          hypre_printf("Iterations = %d\n", num_iterations);
          hypre_printf("Final Relative Residual Norm = %e\n", final_res_norm);
          hypre_printf("\n");
-         printf ("\nnnz_AP * Iterations / Solve Phase Time: %e\n\n", FOM2);
+         printf ("\nFOM_Solve: nnz_AP * Iterations / Solve Phase Time: %e\n\n", FOM2);
          FOM1 += 3.0*FOM2;
          FOM1 /= 4.0;
          printf ("\n\nFigure of Merit (FOM_1): %e\n\n", FOM1);
@@ -552,7 +552,8 @@ main( hypre_int argc,
          hypre_printf("Final Relative Residual Norm = %e\n", final_res_norm);
          hypre_printf("\n");
          cum_nnz_AP /= (HYPRE_Real)time_steps;
-         printf ("\nnnz AP * (Iterations + time_steps) / Total Time: %e\n\n", (cum_nnz_AP*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
+         printf ("\nnnz AP * (Iterations + time_steps) / Total Time: \n");
+         printf ("\nFigure of Merit (FOM_2): %e\n\n", (cum_nnz_AP*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
          hypre_printf("\n");
       }
    }
