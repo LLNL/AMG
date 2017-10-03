@@ -65,7 +65,7 @@ relative-residual stopping criteria,
 
   ||r_k||_2 / ||b||_2 < tol
 
-with tol = 10^-6.
+with tol = 10^-8.
 
 B. Coding:
 
@@ -87,9 +87,8 @@ a large impact on performance.
 D. Test problems
 
 Problem 1 (default): The default problem is a Laplace type problem on a
-cube with a 27-point stencil. This problem should be scaled up to fill
-the entire memory of the machine.
-This problem is solved with AMG-PCG.
+cube with a 27-point stencil. This problem should be scaled up to be very
+large (see "Suggested Test Runs") and is solved with AMG-PCG.
 Suggestions for test runs are given in Section "Suggested Test Runs".
 
 Problem 2 (-problem 2): Simulates a non-linear time-dependent problem.
@@ -177,20 +176,21 @@ remaining roughly constant for larger numbers of processors.  Iteration
 counts will also increase slightly for small to modest sized problems,
 then level off at a roughly constant number for larger problem sizes.
 
-For example, we get the following timing results (in seconds) for a 3D Laplace
-problem with cx = cy = cz = 1.0, distributed on a logical P x Q x R processor 
-topology, with fixed local problem size per process given as 40 x 40 x 40:
+For example, we get the following timing results (in seconds) for a system
+with a 3D 27-point stencil, distributed on a logical P x Q x R processor 
+topology, with fixed local problem size per process given as 96 x 96 x 96:
 
-  P x Q x R     procs    solver similar to solver 0
+  P x Q x R     procs    setup time   solve time
   ---------------------------------------------------------------
-  16x16x16       4096          5.75
-  20x20x20       8000          6.88
-  32x32x32      32768          8.11
-  44x44x44      91125         10.48
-  50x50x50     125000         10.54
+   8x 8x 8       512	  14.91		51.05
+  16x16x 8      2048      15.31		53.35
+  32x16x16      8192 	  16.00		57.78
+  32x32x32     32768      17.55		65.19 
+  64x32x32     65536	  17.49		64.93
 
-These results were obtained on BG/P using the assumed partition option
--DHYPRE_NO_GLOBAL_PARTITION and -DHYPRE_LONG_LONG.
+These results were obtained on BG/Q using MPI and OpenMP with 4 OpenMP 
+threads per MPI task and additional options -DYPRE_HOPSCOTCH 
+-DHYPRE_USING_PERSISTENT_COMM and -DHYPRE-BIGINT .
 
 %==========================================================================
 %==========================================================================
@@ -434,13 +434,16 @@ FOM = (FOM_1 + FOM_2)/2
 
 Suggested Test Runs
 
-1. For Problem 1, the problem needs to be scaled to a size, for which total
-memory use is about 85-90% of the total memory.
+1. For Problem 1, conjugate gradient preconditioned with AMG is used to 
+solve a linear system with a 3D 27-point stencil of size nx*ny*nz*Px*Py*Pz.
 The largest problem we were able to run on Vulcan using 16 cores and 4 OpenMP
 threads was the following:
 mpirun -np <px*py*pz> amg -n 96 96 96 -P px py pz
 This generates a problem with 884,736 grid points per MPI process
 with a global domain of the size 96*px x 96*py x 96*pz .
+For the problem used for the CORAL baseline Figure of Merit calculation on
+BG/Q, px=64, py=pz=32. The problem is sized so that the CORAL-2 problem, which
+needs to be 4 times as large, uses about 200 TiB of memory.
 
 2. For Problem 2, it is expected that the physics code will take up most
 of the machine and only about 5-10% of memory is available for the linear
