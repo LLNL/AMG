@@ -672,14 +672,14 @@ hypre_MatvecCommPkgCreate_core(
 HYPRE_Int
 hypre_MatvecCommPkgCreate ( hypre_ParCSRMatrix *A )
 {
-   HYPRE_Int            num_sends;
-   HYPRE_Int           *send_procs;
-   HYPRE_Int           *send_map_starts;
-   HYPRE_Int           *send_map_elmts;
+   HYPRE_Int            num_sends = 0;
+   HYPRE_Int           *send_procs = NULL;
+   HYPRE_Int           *send_map_starts = NULL;
+   HYPRE_Int           *send_map_elmts = NULL;
  
-   HYPRE_Int            num_recvs;
-   HYPRE_Int           *recv_procs;
-   HYPRE_Int           *recv_vec_starts;
+   HYPRE_Int            num_recvs = 0;
+   HYPRE_Int           *recv_procs = NULL;
+   HYPRE_Int           *recv_vec_starts = NULL;
    
    MPI_Comm             comm = hypre_ParCSRMatrixComm(A);
    hypre_ParCSRCommPkg *comm_pkg;
@@ -689,34 +689,40 @@ hypre_MatvecCommPkgCreate ( hypre_ParCSRMatrix *A )
    HYPRE_Int   *col_map_offd = hypre_ParCSRMatrixColMapOffd(A);
 
    HYPRE_Int    num_cols_offd = hypre_CSRMatrixNumCols(hypre_ParCSRMatrixOffd(A));
+ 
+   HYPRE_Int    num_procs;
 
+   hypre_MPI_Comm_size(comm,&num_procs);
+
+   if (num_procs > 1)
+   {
 #ifdef HYPRE_NO_GLOBAL_PARTITION
 
-   HYPRE_Int             row_start=0, row_end=0, col_start = 0, col_end = 0;
-   HYPRE_Int             global_num_cols;
-   hypre_IJAssumedPart  *apart;
+      HYPRE_Int             row_start=0, row_end=0, col_start = 0, col_end = 0;
+      HYPRE_Int             global_num_cols;
+      hypre_IJAssumedPart  *apart;
    
    /*-----------------------------------------------------------
     * get parcsr_A information 
     *----------------------------------------------------------*/
 
-   hypre_ParCSRMatrixGetLocalRange(A, &row_start, &row_end, &col_start, &col_end);
+      hypre_ParCSRMatrixGetLocalRange(A, &row_start, &row_end, &col_start, &col_end);
 
-   global_num_cols = hypre_ParCSRMatrixGlobalNumCols(A); 
+      global_num_cols = hypre_ParCSRMatrixGlobalNumCols(A); 
 
-   /* Create the assumed partition */
-   if  (hypre_ParCSRMatrixAssumedPartition(A) == NULL)
-   {
-      hypre_ParCSRMatrixCreateAssumedPartition(A);
-   }
+      /* Create the assumed partition */
+      if  (hypre_ParCSRMatrixAssumedPartition(A) == NULL)
+      {
+         hypre_ParCSRMatrixCreateAssumedPartition(A);
+      }
 
-   apart = hypre_ParCSRMatrixAssumedPartition(A);
+      apart = hypre_ParCSRMatrixAssumedPartition(A);
    
-   /*-----------------------------------------------------------
-    * get commpkg info information 
-    *----------------------------------------------------------*/
+      /*-----------------------------------------------------------
+       * get commpkg info information 
+       *----------------------------------------------------------*/
 
-   hypre_NewCommPkgCreate_core( comm, col_map_offd, first_col_diag, 
+      hypre_NewCommPkgCreate_core( comm, col_map_offd, first_col_diag, 
                                 col_start, col_end, 
                                 num_cols_offd, global_num_cols,
                                 &num_recvs, &recv_procs, &recv_vec_starts,
@@ -725,10 +731,10 @@ hypre_MatvecCommPkgCreate ( hypre_ParCSRMatrix *A )
 
 #else
    
-   HYPRE_Int  *col_starts = hypre_ParCSRMatrixColStarts(A);
-   HYPRE_Int    num_cols_diag = hypre_CSRMatrixNumCols(hypre_ParCSRMatrixDiag(A));
+      HYPRE_Int  *col_starts = hypre_ParCSRMatrixColStarts(A);
+      HYPRE_Int    num_cols_diag = hypre_CSRMatrixNumCols(hypre_ParCSRMatrixDiag(A));
 
-   hypre_MatvecCommPkgCreate_core
+      hypre_MatvecCommPkgCreate_core
       ( comm, col_map_offd, first_col_diag, col_starts,
         num_cols_diag, num_cols_offd,
         first_col_diag, col_map_offd,
@@ -742,7 +748,12 @@ hypre_MatvecCommPkgCreate ( hypre_ParCSRMatrix *A )
    /*-----------------------------------------------------------
     * setup commpkg
     *----------------------------------------------------------*/
-
+   }
+   else
+   {
+      send_map_starts = hypre_CTAlloc(HYPRE_Int,1);
+      recv_vec_starts = hypre_CTAlloc(HYPRE_Int,1);
+   }
    comm_pkg = hypre_CTAlloc(hypre_ParCSRCommPkg, 1);
 
    hypre_ParCSRCommPkgComm(comm_pkg) = comm;
