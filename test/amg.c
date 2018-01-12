@@ -345,6 +345,7 @@ main( hypre_int argc,
    if (problem_id == 1 )
    {
       time_index = hypre_InitializeTiming("PCG Setup");
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_BeginTiming(time_index);
  
       HYPRE_ParCSRPCGCreate(hypre_MPI_COMM_WORLD, &pcg_solver);
@@ -388,6 +389,7 @@ main( hypre_int argc,
       HYPRE_PCGSetup(pcg_solver, (HYPRE_Matrix)parcsr_A, 
                      (HYPRE_Vector)b, (HYPRE_Vector)x);
 
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_EndTiming(time_index);
       hypre_PrintTiming("Problem 1: AMG Setup Time", &wall_time, hypre_MPI_COMM_WORLD);
       hypre_FinalizeTiming(time_index);
@@ -402,11 +404,13 @@ main( hypre_int argc,
             printf ("\nFOM_Setup: nnz_AP / Setup Phase Time: %e\n\n", FOM2);
    
       time_index = hypre_InitializeTiming("PCG Solve");
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_BeginTiming(time_index);
  
       HYPRE_PCGSolve(pcg_solver, (HYPRE_Matrix)parcsr_A, 
                      (HYPRE_Vector)b, (HYPRE_Vector)x);
  
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_EndTiming(time_index);
       hypre_PrintTiming("Problem 1: AMG-PCG Solve Time", &wall_time, hypre_MPI_COMM_WORLD);
       hypre_FinalizeTiming(time_index);
@@ -447,6 +451,7 @@ main( hypre_int argc,
       HYPRE_Real diagonal = 26.5;
       AddOrRestoreAIJ(ij_A, diagonal, 0);
       time_index = hypre_InitializeTiming("GMRES Solve");
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_BeginTiming(time_index);
       for (j=0; j < time_steps; j++)
       {
@@ -540,6 +545,7 @@ main( hypre_int argc,
             HYPRE_ParVectorSetConstantValues(b,1.0);
          }
       }
+      hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
       hypre_EndTiming(time_index);
       hypre_PrintTiming("Problem 2: Cumulative AMG-GMRES Solve Time", &wall_time, hypre_MPI_COMM_WORLD);
       hypre_FinalizeTiming(time_index);
