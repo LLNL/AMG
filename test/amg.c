@@ -216,6 +216,12 @@ main( hypre_int argc,
          arg_index++;
          print_system = 1;
       }
+      else if ( strcmp(argv[arg_index], "-keepT") == 0 )
+      {
+         arg_index++;
+         keepTranspose = 1;
+         rap2 = 0;
+      }
       else
       {
          arg_index++;

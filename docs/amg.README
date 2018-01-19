@@ -225,6 +225,8 @@ Usage: amg [<options>]
  
   -printsystem        : print out the system
  
+  -keepT              : will store transposes of interpolation and use
+			matvec instead of tmatvec in solve phase
 
 All of the arguments are optional.  The most important option for the AMG
 compact application is the `-P' option. It specifies the MPI process topology 
