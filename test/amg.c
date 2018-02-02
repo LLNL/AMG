@@ -404,7 +404,7 @@ main( hypre_int argc,
 
       HYPRE_BoomerAMGGetCumNnzAP(pcg_precond, &cum_nnz_AP);
 
-      FOM2 = cum_nnz_AP/ wall_time;
+      FOM1 = cum_nnz_AP/ wall_time;
 
       if (myid == 0)
             printf ("\nFOM_Setup: nnz_AP / Setup Phase Time: %e\n\n", FOM2);
