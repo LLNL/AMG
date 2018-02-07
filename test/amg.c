@@ -407,7 +407,7 @@ main( hypre_int argc,
       FOM1 = cum_nnz_AP/ wall_time;
 
       if (myid == 0)
-            printf ("\nFOM_Setup: nnz_AP / Setup Phase Time: %e\n\n", FOM2);
+            printf ("\nFOM_Setup: nnz_AP / Setup Phase Time: %e\n\n", FOM1);
    
       time_index = hypre_InitializeTiming("PCG Solve");
       hypre_MPI_Barrier(hypre_MPI_COMM_WORLD);
