@@ -565,7 +565,7 @@ main( hypre_int argc,
          hypre_printf("\n");
          cum_nnz_AP /= (HYPRE_Real)time_steps;
          printf ("\nnnz AP * (Iterations + time_steps) / Total Time: \n");
-         printf ("\nFigure of Merit (FOM_2): %e\n\n", (cum_nnz_AP*(HYPRE_Real)(num_iterations +time_steps)/ wall_time));
+         printf ("\nFigure of Merit (FOM_2): %e\n\n", (cum_nnz_AP*(HYPRE_Real)(cum_num_its +time_steps)/ wall_time));
          hypre_printf("\n");
       }
    }
