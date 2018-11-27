@@ -19,53 +19,28 @@
 #
 #EHEADER**********************************************************************
 
-
-
-
 srcdir = .
 
 HYPRE_DIRS =\
- utilities\
- krylov\
- IJ_mv\
- parcsr_ls\
- parcsr_mv\
- seq_mv\
- test
+  utilities\
+  krylov\
+  IJ_mv\
+  parcsr_ls\
+  parcsr_mv\
+  seq_mv
 
-all:
-	@ \
-	for i in ${HYPRE_DIRS}; \
-	do \
-	  if [ -d $$i ]; \
-	  then \
-	    echo "Making $$i ..."; \
-	    (cd $$i; make); \
-	    echo ""; \
-	  fi; \
-	done
+all: $(HYPRE_DIRS)
+	$(MAKE) -C test
+$(HYPRE_DIRS):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-clean:
-	@ \
-	for i in ${HYPRE_DIRS}; \
-	do \
-	  if [ -d $$i ]; \
-	  then \
-	    echo "Cleaning $$i ..."; \
-	    (cd $$i; make clean); \
-	  fi; \
-	done
+clean: $(HYPRE_DIRS)
+	$(MAKE) -C test clean
 
-veryclean:
-	@ \
-	for i in ${HYPRE_DIRS}; \
-	do \
-	  if [ -d $$i ]; \
-	  then \
-	    echo "Very-cleaning $$i ..."; \
-	    (cd $$i; make veryclean); \
-	  fi; \
-	done
+veryclean: $(HYPRE_DIRS)
+	$(MAKE) -C test veryclean
 
 tags:
 	find . -name "*.c" -or -name "*.C" -or -name "*.h" -or -name "*.c??" -or -name "*.h??" -or -name "*.f" | etags -
+
+.PHONY: all $(HYPRE_DIRS)
